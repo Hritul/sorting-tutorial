@@ -1,0 +1,32 @@
+#include<time.h>
+#include<stdlib.h>
+#include<stdio.h>
+#define MAX 100000
+void swap(int *x,int *y)
+{
+	int temp=*x;
+	*x=*y;
+	*y=temp;
+}
+
+void bubbleSort(int a[],int n) 
+{ 
+   int i,j; 
+   for (i = 0; i < n-1; i++)       
+   for (j = 0; j < n-i-1; j++)  
+	if (a[j] < a[j+1]) 
+    swap(&a[j], &a[j+1]); 
+} 
+int main()
+{
+	int a[MAX],i;
+	clock_t start, end;
+	for(i=0;i<MAX;i++)
+	a[i]=rand();
+
+	start=clock();
+	bubbleSort(a,MAX);
+	 
+	end = clock();
+	printf("time required= %d", end-start);	
+}
